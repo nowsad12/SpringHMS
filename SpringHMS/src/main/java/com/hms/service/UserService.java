@@ -11,4 +11,8 @@ public interface UserService {
     public List<User> fetchUserList();
 
     public User fetchUserById(int userId);
+
+   public   void deleteUserById(int userId);
+
+   public User updateUser(Long userId, User user);
 }

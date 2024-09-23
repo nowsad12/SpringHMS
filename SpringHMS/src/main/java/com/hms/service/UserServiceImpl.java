@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -29,5 +30,18 @@ public class UserServiceImpl implements UserService{
     public User fetchUserById(int userId) {
         return userRepo.findById(userId).get();
     }
+
+    @Override
+    public void deleteUserById(int userId) {
+        userRepo.deleteById(userId);
+    }
+
+    @Override
+    public User updateUser(int userId, User user) {
+        User userDB = userRepo.findById(userId).get();
+        if (Objects.nonNull(user.getUsername()) && !"".equalsIgnoreCase(user.getUsername());
+        )
+    }
+
 
 }
