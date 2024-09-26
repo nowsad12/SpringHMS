@@ -39,9 +39,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public User updateUser(int userId, User user) {
         User userDB = userRepo.findById(userId).get();
-        if (Objects.nonNull(user.getUsername()) && !"".equalsIgnoreCase(user.getUsername());
-        )
+        if (Objects.nonNull(user.getUsername()) && (!"".equalsIgnoreCase(user.getUsername()))){
+            userDB.setUsername(user.getUsername());
+        }
+        if (Objects.nonNull(user.getAddress()) && (!"".equalsIgnoreCase(user.getAddress()))){
+            userDB.setAddress(user.getAddress());
+        }
+        return userRepo.save(userDB);
     }
+
 
 
 }
